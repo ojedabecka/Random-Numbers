@@ -1,0 +1,93 @@
+div {
+    width: 50%;
+    margin: auto;
+    border: 7.5px ridge yellow;
+}
+body{
+  background-image: url("https://media.tenor.com/images/acbfcb98ba54f162e5cf85d494cb8624/tenor.gif");
+}
+#H01 {
+    color: #ffff;
+    font-family: 'Baloo Bhai', cursive;
+    position: absolute;
+    bottom: 380px;
+    left: 400px;
+}
+.msg {
+    width: 90%;
+    margin: auto;
+    border: 0px ridge yellow;
+}
+.num {
+    width: 90%;
+    margin: auto;
+    border: 0px transparent;
+    padding-bottom: 70px;
+}
+.mod {
+   color: #ffff;
+   text-align:center;
+   float: left;
+   margin: 9px;
+   padding: 7.5px;
+   width: 25px;
+   background-color: #fff;
+   border: #ffff;
+   border-radius: 20px;
+}
+.container{
+    background-color: #00cc99;
+    border: #00cc99;
+    border-radius: 10px;
+}
+
+.button {
+    background-color: #aa00ff;
+    border: #aa00ff;
+    color: white;
+    width: 120px;
+    height: 50px;
+    padding: 2px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px 20px;
+    -webkit-transition-duration: 0.7s; /* Safari */
+    transition-duration: 0.7s;
+    cursor: pointer;
+}
+
+.button1 {
+	border-radius: 25px;
+  background-color: #aa00ff;
+}
+
+.button:hover {
+    background-color: #aa00ff;
+    color: white;
+}
+.button:active {
+  background-color: #aa00ff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+a:link {
+    color: #aa00ff;
+    background-color: transparent;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+a:visited {
+    color: #aa00ff;
+    background-color: transparent;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+a:active {
+    color: #aa00ff;
+    background-color: transparent;
+    text-decoration: underline;
+    font-family: 'Montserrat', sans-serif;
+}
