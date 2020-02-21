@@ -1,86 +1,59 @@
-//Declaração de variaveis
-var NUM = [],
-  stt,
-  NEA,
-  NN,
-  str,
-  STATUS,
-  X = 6;
+(() => {
+  let quantity;
+  let numbers = [];
 
-function INICIO() {
-  if (NEA) {
-    document.getElementById("XX00").innerHTML = "AGUARDE . . .";
-    setTimeout(RELOAD, 1500);
-  } else {
-    MEGA();
-  }
-}
-function GeraDez() {
-  var W;
-  var txt = " ";
-  var NMR = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  for (W = 0; W < NMR.length; W++) {
-    if (NMR[W] < 10) {
-      NMR[W] = "0" + NMR[W];
+  window.addEventListener("load", () => {
+    document.getElementById("XX00").innerHTML = "QUANTAS DEZENAS?";
+    document.getElementById("00").appendChild(createInput("quantity"));
+  });
+
+  document.getElementById("start").addEventListener("click", () => {
+    start();
+  });
+
+  function start() {
+    if (numbers.length > 0) {
+      setTimeout(refresh, 1500);
+    } else {
+      document.getElementById("XX00").innerHTML = "AGUARDE . . .";
+      quantity = Number(document.getElementById("quantity").value);
+      setTimeout(generate, 1500);
     }
-    txt +=
-      "<div class='mod'>" +
-      "<a href=javascript:pegadez(" +
-      NMR[W] +
-      ")>" +
-      NMR[W] +
-      "</a>" +
-      "</div>";
   }
-  document.getElementById("00").innerHTML = txt;
-  document.getElementById("XX00").innerHTML = " QUANTAS DEZENAS? ";
-}
 
-function pegadez(dez) {
-  X = dez;
-}
-
-//INICIO MEGA
-function MEGA() {
-  NN = Math.floor(Math.random() * 30) + 1;
-  if (NN < 10) {
-    NN = "0" + NN;
+  function generate() {
+    document.getElementById("00").innerHTML = "GERANDO PALPITES";
+    let num = Math.floor(Math.random() * 60) + 1;
+    if (numbers.indexOf(num) === -1) numbers.push(num);
+    document.getElementById("XX00").innerHTML = `${numbers.length}ª DEZENA`;
+    if (numbers.length < quantity) {
+      setTimeout(generate, 750);
+    } else {
+      setTimeout(end, 1000);
+    }
   }
-  //CONVERTE ARRAY P/ STRING => se não usar o get, da erro...
-  str = document.getElementById("H00").innerHTML = NUM.toString();
-  //LIMPA H00
-  document.getElementById("H00").innerHTML = "";
 
-  //VERIFICA SE NN JÁ FOI SORTEADO => pos É A POSIÇÃO DA STRING NA ARRAY, -1 É QDO NÃO ENCONTRA
-  var pos = str.search(NN);
-  if (pos == -1) {
-    //ARMAZENA EM "ARRAY NUM"
-    NUM.push(NN);
-    //ENVIA PRA TELA
-    document.getElementById("H01").innerHTML += " " + NN;
-    //Nº de ARRAYS
-    NEA = NUM.length;
+  function end() {
+    console.log(numbers);
+    document.getElementById("H01").innerHTML += "   ";
+    document.getElementById("XX00").innerHTML = "BOA SORTE!";
+    document.getElementById("XX01").innerHTML =
+      "Se Ganhar, não esqueça de mim :)";
+    document.getElementById("00").innerHTML = "";
   }
-  if (NEA < X) {
-    STATUS = "ON";
-    var LOOPING = setTimeout(MEGA, 750);
-  } else {
-    STATUS = "OFF";
-    var FIM = setTimeout(LHORIZ, 1000);
+
+  function refresh() {
+    window.location.reload(true);
   }
-  document.getElementById("00").innerHTML = " GERANDO PALPITES ";
-  document.getElementById("XX00").innerHTML = " " + NEA + "ª " + "DEZENA";
-}
-//FIM MEGA
 
-function RELOAD() {
-  window.location.reload(true);
-}
-
-function LHORIZ() {
-  document.getElementById("H01").innerHTML += "   ";
-  document.getElementById("XX00").innerHTML = "BOA SORTE!";
-  document.getElementById("XX01").innerHTML =
-    "Se Ganhar, não esqueça de mim :)";
-  document.getElementById("00").innerHTML = "";
-}
+  function createInput(id) {
+    let elem = document.createElement("input");
+    elem.setAttribute("id", id);
+    elem.setAttribute("min", "1");
+    elem.setAttribute("max", "20");
+    elem.setAttribute("step", "1");
+    elem.setAttribute("value", "10");
+    elem.setAttribute("type", "number");
+    return elem;
+  }
+})();
