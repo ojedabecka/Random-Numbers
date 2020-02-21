@@ -46,7 +46,7 @@
   function end() {
     document.getElementById("upperMessage").innerHTML = "BOA SORTE!";
     document.getElementById("bottomMessage").innerHTML =
-      "Se Ganhar, não esqueça de mim :)";
+      "Se Ganhar, não esqueça de nós :)";
     document.getElementById("btn-text").innerHTML = "REINICIAR";
   }
 
