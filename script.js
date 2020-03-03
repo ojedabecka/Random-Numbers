@@ -3,7 +3,7 @@
   let numbers = [];
 
   window.addEventListener("load", () => {
-    document.getElementById("upperMessage").innerHTML = "QUANTAS DEZENAS?";
+    document.getElementById("upperMessage").innerHTML = "QUANTOS NÚMEROS?";
     document.getElementById("numbers").appendChild(createInput("quantity"));
   });
 
@@ -46,7 +46,7 @@
   function end() {
     document.getElementById("upperMessage").innerHTML = "BOA SORTE!";
     document.getElementById("bottomMessage").innerHTML =
-      "Se Ganhar, não esqueça de nós :)";
+      "Se Ganhar, não esqueça da gente :)";
     document.getElementById("btn-text").innerHTML = "REINICIAR";
   }
 
